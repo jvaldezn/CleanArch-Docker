@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace API.Configuration
+namespace API.Extensions
 {
     public static class DatabaseInitializerExtensions
     {

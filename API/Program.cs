@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using API.Endpoints;
-using API.Configuration;
+using API.Extensions;
 using Infrastructure.Configuration.Context;
 using API.Middlewares;
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +25,8 @@ builder.Services.AddDbContexts(builder.Configuration);
 //builder.Services.AddDbContext<AppDbContext>(options =>
 //    options.UseSqlServer(builder.Configuration.GetConnectionString("AppDbConnection")));
 builder.Services.AddDependencies(builder.Configuration);
+
+builder.Services.AddMassTransit(builder.Configuration);
 
 builder.Services.ConfigureCustomApiBehavior();
 

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System.Text;
 using Transversal.Common;
 
-namespace API.Configuration
+namespace API.Extensions
 {
     public static class JwtAuthenticationExtensions
     {

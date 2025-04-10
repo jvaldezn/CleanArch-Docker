@@ -18,6 +18,7 @@
     <ProjectReference Include="..\Application.Contracts\Application.Interface.csproj" />
     <ProjectReference Include="..\Infrastructure.Configuration\Infrastructure.Configuration.csproj" />
     <ProjectReference Include="..\Infrastructure.Interface\Infrastructure.Interface.csproj" />
+    <ProjectReference Include="..\Infrastructure.Messaging\Infrastructure.Messaging.csproj" />
     <ProjectReference Include="..\Transversal.Common\Transversal.Common.csproj" />
     <ProjectReference Include="..\Transversal.Validator\Transversal.Validator.csproj" />
   </ItemGroup>

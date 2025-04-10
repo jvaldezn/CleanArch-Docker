@@ -4,7 +4,10 @@ using Application.Interface;
 using Application.Services;
 using AutoMapper;
 using Domain.Entities;
+using Infrastructure.Configuration.Context;
 using Infrastructure.Interface;
+using Infrastructure.Messaging.Contract;
+using Infrastructure.Messaging.Publisher;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -15,19 +18,21 @@ namespace Application.Tests
 {
     public class ProductServiceTests
     {
-        private readonly Mock<IUnitOfWork> _mockUnitOfWork;
+        private readonly Mock<IUnitOfWork<AppDbContext>> _mockUnitOfWork;
         private readonly Mock<IMapper> _mockMapper;
         private readonly Mock<IProductRepository> _mockProductRepository;
         private readonly Mock<ILogger<ProductService>> _mockLogger;
         private readonly IProductService _productService;
+        private readonly Mock<IEventPublisher> _mockEventPublisher;
 
         public ProductServiceTests()
         {
-            _mockUnitOfWork = new Mock<IUnitOfWork>();
+            _mockUnitOfWork = new Mock<IUnitOfWork<AppDbContext>>();
             _mockMapper = new Mock<IMapper>();
             _mockProductRepository = new Mock<IProductRepository>();
             _mockLogger = new Mock<ILogger<ProductService>>();
-            _productService = new ProductService(_mockUnitOfWork.Object, _mockMapper.Object, _mockProductRepository.Object, _mockLogger.Object);
+            _mockEventPublisher = new Mock<IEventPublisher>();
+            _productService = new ProductService(_mockUnitOfWork.Object, _mockMapper.Object, _mockProductRepository.Object, _mockLogger.Object, _mockEventPublisher.Object);
         }
 
         [Fact]
@@ -79,6 +84,8 @@ namespace Application.Tests
 
             _mockUnitOfWork.Verify(u => u.BeginTransactionAsync(), Times.Once);
             mockTransaction.Verify(t => t.CommitAsync(It.IsAny<CancellationToken>()), Times.Once);
+
+            _mockEventPublisher.Verify(p => p.Publish(It.IsAny<LogCreatedEvent>()), Times.Once);
         }
     }
 }

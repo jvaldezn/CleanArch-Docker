@@ -21,6 +21,9 @@ namespace Transversal.Common
         public static readonly string AppDbConnection_Error = $"Connection string '{AppDbConnection}' not found.";
         public static readonly string LogDbConnection = "LogDbConnection";
         public static readonly string LogDbConnection_Error = $"Connection string '{LogDbConnection}' not found.";
-        public static readonly string TestConstant = "Azure1";
+        public static readonly string MBHost = "MessageBroker:Host";
+        public static readonly string MBUsername = "MessageBroker:Username";
+        public static readonly string MBPassword = "MessageBroker:Password";
+        public static readonly string MBRetryCount = "MessageBroker:RetryCount";
     }
 }

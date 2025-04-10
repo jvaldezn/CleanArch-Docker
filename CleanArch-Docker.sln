@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Tests", "Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transversal.Validator", "Transversal.Validator\Transversal.Validator.csproj", "{CA5C2198-C0B9-4FBA-B351-1CF5A04481BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Messaging", "Infrastructure.Messaging\Infrastructure.Messaging.csproj", "{62BEFE6A-EF3C-4F97-B40D-8E5DA3747947}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{CA5C2198-C0B9-4FBA-B351-1CF5A04481BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA5C2198-C0B9-4FBA-B351-1CF5A04481BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA5C2198-C0B9-4FBA-B351-1CF5A04481BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62BEFE6A-EF3C-4F97-B40D-8E5DA3747947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62BEFE6A-EF3C-4F97-B40D-8E5DA3747947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62BEFE6A-EF3C-4F97-B40D-8E5DA3747947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62BEFE6A-EF3C-4F97-B40D-8E5DA3747947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,5 +123,6 @@ Global
 		{93A52F81-3607-4624-B73F-0FD99371F8CD} = {E7F0716D-9391-4531-B0BA-2A5AC46B1670}
 		{F1CBC37B-6A01-4C51-9719-FD08E3F5E6F1} = {E7F0716D-9391-4531-B0BA-2A5AC46B1670}
 		{CA5C2198-C0B9-4FBA-B351-1CF5A04481BC} = {95EB25AF-7F1C-4D21-BBAE-1B2B7B3D0A0D}
+		{62BEFE6A-EF3C-4F97-B40D-8E5DA3747947} = {5BDFB6E3-8779-430B-A068-C764E70EEBD3}
 	EndGlobalSection
 EndGlobal

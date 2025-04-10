@@ -3,7 +3,7 @@ using Infrastructure.Configuration.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
-namespace API.Configuration
+namespace API.Extensions
 {
     public static class ContextsExtensions
     {

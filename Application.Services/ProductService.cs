@@ -4,6 +4,8 @@ using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Configuration.Context;
 using Infrastructure.Interface;
+using Infrastructure.Messaging.Contract;
+using Infrastructure.Messaging.Publisher;
 using Microsoft.Extensions.Logging;
 using Transversal.Common;
 using Transversal.Common.Interfaces;
@@ -16,13 +18,15 @@ namespace Application.Services
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
         private readonly ILogger<ProductService> _logger;
+        private readonly IEventPublisher _eventPublisher;
 
-        public ProductService(IUnitOfWork<AppDbContext> unitOfWork, IMapper mapper, IProductRepository productRepository, ILogger<ProductService> logger)
+        public ProductService(IUnitOfWork<AppDbContext> unitOfWork, IMapper mapper, IProductRepository productRepository, ILogger<ProductService> logger, IEventPublisher eventPublisher)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _productRepository = productRepository;
             _logger = logger;
+            _eventPublisher = eventPublisher;
         }
 
         public async Task<Response<IEnumerable<ProductDto>>> GetAllProducts()
@@ -53,6 +57,19 @@ namespace Application.Services
                 await _productRepository.AddAsync(product);
                 await _unitOfWork.SaveAsync();
                 await transaction.CommitAsync();
+
+                await _eventPublisher.Publish(new LogCreatedEvent
+                {
+                    MachineName = "TEST",
+                    Logged = DateTime.UtcNow,
+                    Level = "INFORMATION",
+                    Message = Messages.ProductCreated,
+                    Logger = "jvaldez",
+                    Properties = $"Product Created with id {product.Id}",
+                    Callsite = nameof(ProductService),
+                    Exception = null,
+                    ApplicationId = 1
+                });
 
                 return Response<ProductDto>.Success(_mapper.Map<ProductDto>(product), Messages.ProductCreated);
             }

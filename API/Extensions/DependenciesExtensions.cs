@@ -4,11 +4,12 @@ using Application.Services;
 using Infrastructure.Configuration;
 using Infrastructure.Configuration.Context;
 using Infrastructure.Interface;
+using Infrastructure.Messaging.Publisher;
 using Infrastructure.Repositories;
 using Transversal.Common.Interfaces;
 using Transversal.Mappings;
 
-namespace API.Configuration
+namespace API.Extensions
 {
     public static class DependenciesExtensions
     {
@@ -29,6 +30,8 @@ namespace API.Configuration
 
             services.AddScoped<ILogRepository, LogRepository>();
             services.AddScoped<ILogService, LogService>();
+
+            services.AddScoped<IEventPublisher, EventPublisher>();
 
             return services;
         }

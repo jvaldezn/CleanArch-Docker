@@ -10,6 +10,7 @@ using Application.Services;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Entities.Enums;
+using Infrastructure.Configuration.Context;
 using Infrastructure.Interface;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
@@ -23,7 +24,7 @@ namespace Application.Tests
 {
     public class UserServiceTests
     {
-        private readonly Mock<IUnitOfWork> _mockUnitOfWork;
+        private readonly Mock<IUnitOfWork<AppDbContext>> _mockUnitOfWork;
         private readonly Mock<IMapper> _mockMapper;
         private readonly Mock<IConfiguration> _mockConfiguration;
         private readonly Mock<IUserRepository> _mockUserRepository;
@@ -32,7 +33,7 @@ namespace Application.Tests
 
         public UserServiceTests()
         {
-            _mockUnitOfWork = new Mock<IUnitOfWork>();
+            _mockUnitOfWork = new Mock<IUnitOfWork<AppDbContext>>();
             _mockMapper = new Mock<IMapper>();
             _mockConfiguration = new Mock<IConfiguration>();
             _mockUserRepository = new Mock<IUserRepository>();
