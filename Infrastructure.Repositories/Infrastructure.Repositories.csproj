@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure.Configuration\Infrastructure.Configuration.csproj" />
+    <ProjectReference Include="..\Infrastructure.Interface\Infrastructure.Interface.csproj" />
+    <ProjectReference Include="..\Transversal.Common\Transversal.Common.csproj" />
+  </ItemGroup>
+
+</Project>
