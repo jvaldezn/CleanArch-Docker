@@ -42,3 +42,13 @@ reportgenerator -reports:"C:\GIT\CleanArch-Docker\Application.Tests\TestResults\
 
 reportgenerator -reports:"C:\GIT\CleanArch-Docker\Infrastructure.Tests\TestResults\51373deb-27ef-4316-ba92-ba97ce747358\coverage.cobertura.xml" -targetdir:"C:\GIT\CleanArch-Docker\coveragereport_Infrastructure" -reporttypes:Html
 ```
+
+## RabbitMQ
+
+ - Instalar DockerDesktop y ejecutar el siguiente commando en la consola
+ 
+ ```bash
+ docker run -d --hostname rmq --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+ ```
+ 
+ - Accesos RabbitMQ Panel; Usuario: guest / Password: guest
