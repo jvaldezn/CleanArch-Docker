@@ -2,6 +2,7 @@
 using Application.Interface;
 using Application.Services;
 using Infrastructure.Configuration;
+using Infrastructure.Configuration.Context;
 using Infrastructure.Interface;
 using Infrastructure.Repositories;
 using Transversal.Common.Interfaces;
@@ -17,13 +18,17 @@ namespace API.Configuration
 
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork<AppDbContext>, UnitOfWork<AppDbContext>>();
+            services.AddScoped<IUnitOfWork<LogDbContext>, UnitOfWork<LogDbContext>>();
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<ILogRepository, LogRepository>();
+            services.AddScoped<ILogService, LogService>();
 
             return services;
         }

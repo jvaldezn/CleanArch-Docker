@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using API.Controllers;
+using API.Endpoints;
 using API.Configuration;
 using Infrastructure.Configuration.Context;
 using API.Middlewares;
@@ -59,5 +59,7 @@ app.UseCors("ReactClient");
 app.MapUserEndpoints();
 
 app.MapProductEndpoints();
+
+app.MapLogEndpoints();
 
 app.Run();

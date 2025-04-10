@@ -14,18 +14,19 @@ using Microsoft.Extensions.Configuration;
 using Transversal.Common.Helper;
 using Microsoft.VisualBasic;
 using Transversal.Validator;
+using Infrastructure.Configuration.Context;
 
 namespace Application.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork<AppDbContext> _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IUserRepository _userRepository;
         private readonly ILogger<UserService> _logger;
         private readonly IConfiguration _configuration;
 
-        public UserService(IUnitOfWork unitOfWork, IMapper mapper, IUserRepository userRepository, ILogger<UserService> logger, IConfiguration configuration)
+        public UserService(IUnitOfWork<AppDbContext> unitOfWork, IMapper mapper, IUserRepository userRepository, ILogger<UserService> logger, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

@@ -2,6 +2,7 @@
 using Application.Interface;
 using AutoMapper;
 using Domain.Entities;
+using Infrastructure.Configuration.Context;
 using Infrastructure.Interface;
 using Microsoft.Extensions.Logging;
 using Transversal.Common;
@@ -11,12 +12,12 @@ namespace Application.Services
 {
     public class ProductService : IProductService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork<AppDbContext> _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IProductRepository _productRepository;
         private readonly ILogger<ProductService> _logger;
 
-        public ProductService(IUnitOfWork unitOfWork, IMapper mapper, IProductRepository productRepository, ILogger<ProductService> logger)
+        public ProductService(IUnitOfWork<AppDbContext> unitOfWork, IMapper mapper, IProductRepository productRepository, ILogger<ProductService> logger)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

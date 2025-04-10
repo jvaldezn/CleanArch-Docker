@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Infrastructure.Configuration
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork<TContext> : IUnitOfWork<TContext> where TContext : DbContext
     {
-        private readonly AppDbContext _context;
+        protected readonly TContext _context;
 
-        public UnitOfWork(AppDbContext context)
+        public UnitOfWork(TContext context)
         {
             _context = context;
         }

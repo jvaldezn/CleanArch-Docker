@@ -19,6 +19,8 @@ namespace Transversal.Common
         public static readonly string Migrations_Folder = "Infrastructure.Configuration";
         public static readonly string AppDbConnection = "AppDbConnection";
         public static readonly string AppDbConnection_Error = $"Connection string '{AppDbConnection}' not found.";
+        public static readonly string LogDbConnection = "LogDbConnection";
+        public static readonly string LogDbConnection_Error = $"Connection string '{LogDbConnection}' not found.";
         public static readonly string TestConstant = "Azure1";
     }
 }

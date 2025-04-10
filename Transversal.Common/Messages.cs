@@ -33,5 +33,8 @@ namespace Transversal.Common
         public const string EmailAlreadyExists = "El correo electrónico ya está en uso.";
 
         public const string InvalidCredentials = "Usuario o contraseña incorrectos.";
+
+        public const string DidntSendInformationForConsume = "No se envio la información necesaria para realizar la operación solicitada.";
+        public const string DidNotFindAnyResults = "No se encontraron resultados";
     }
 }

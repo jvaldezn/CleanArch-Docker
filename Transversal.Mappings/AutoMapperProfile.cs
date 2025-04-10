@@ -10,6 +10,7 @@ namespace Transversal.Mappings
         {
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<Log, LogDto>().ReverseMap();
         }
     }
 }

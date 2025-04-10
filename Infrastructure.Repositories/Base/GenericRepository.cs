@@ -12,10 +12,10 @@ namespace Infrastructure.Repositories.Base
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly AppDbContext _context;
+        protected readonly DbContext _context;
         protected readonly DbSet<T> _dbSet;
 
-        public GenericRepository(AppDbContext context)
+        public GenericRepository(DbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();

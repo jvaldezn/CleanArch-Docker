@@ -17,12 +17,12 @@ namespace Infrastructure.Repositories
 
         public async Task<User?> GetByUsernameAsync(string username)
         {
-            return await base._context.User.FirstOrDefaultAsync(u => u.Username == username);
+            return await _context.Set<User>().FirstOrDefaultAsync(u => u.Username == username);
         }
 
         public async Task<User?> GetByEmailAsync(string email)
         {
-            return await base._context.User.FirstOrDefaultAsync(u => u.Email == email);
+            return await _context.Set<User>().FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }

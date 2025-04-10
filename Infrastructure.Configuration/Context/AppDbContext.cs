@@ -23,6 +23,8 @@ namespace Infrastructure.Configuration.Context
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

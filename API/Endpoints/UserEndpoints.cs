@@ -1,7 +1,7 @@
 ﻿using Application.DTOs;
 using Application.Interface;
 
-namespace API.Controllers
+namespace API.Endpoints
 {
     public static class UserEndpoints
     {

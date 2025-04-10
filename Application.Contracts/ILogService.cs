@@ -1,0 +1,19 @@
+﻿using Application.DTOs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Transversal.Common;
+
+namespace Application.Interface
+{
+    public interface ILogService
+    {
+        Task<Response<LogDto>> RegisterLog(LogDto information);
+        Task<Response<IEnumerable<LogDto>>> GetLogsByDates(DateTime startDate, DateTime endDate);
+        Task<Response<IEnumerable<LogDto>>> GetLogByApplicationAndDate(int applicationId, DateTime logged);
+        Task<Response<IEnumerable<LogDto>>> GetLogByApplicationAndYearAndMonth(int applicationId, DateTime logged);
+        Task<Response<IEnumerable<LogDto>>> GetLogByYearAndMonth(DateTime logged);
+    }
+}

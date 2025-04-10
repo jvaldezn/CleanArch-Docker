@@ -18,6 +18,15 @@ namespace API.Configuration
                     });
             });
 
+            services.AddDbContext<LogDbContext>(x =>
+            {
+                x.UseSqlServer(configuration.GetConnectionString(Constant.LogDbConnection) ??
+                    throw new InvalidOperationException(Constant.LogDbConnection_Error), options =>
+                    {
+                        options.MigrationsAssembly(Constant.Migrations_Folder);
+                    });
+            });
+
             return services;
         }
     }
