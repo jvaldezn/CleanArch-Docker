@@ -8,6 +8,8 @@ namespace API.Middlewares
         {
             services.Configure<ApiBehaviorOptions>(options =>
             {
+                options.SuppressModelStateInvalidFilter = false;
+
                 options.InvalidModelStateResponseFactory = context =>
                 {
                     var errors = context.ModelState.Values
@@ -19,9 +21,9 @@ namespace API.Middlewares
 
                     var response = new
                     {
-                        success = false,
-                        message = errorMessage,
-                        data = errors,
+                        IsSuccess = false,
+                        Message = errorMessage,
+                        Data = errors,
                     };
 
                     return new BadRequestObjectResult(response);

@@ -34,7 +34,7 @@ builder.Services.AddDependencies(builder.Configuration);
 
 builder.Services.AddMassTransit(builder.Configuration);
 
-builder.Services.ConfigureCustomApiBehavior();
+//builder.Services.ConfigureCustomApiBehavior();
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();

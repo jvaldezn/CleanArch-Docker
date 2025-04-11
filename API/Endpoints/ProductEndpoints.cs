@@ -1,4 +1,5 @@
 ﻿using API;
+using API.Extensions;
 using Application.DTOs;
 using Application.Interface;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -37,6 +38,7 @@ public static class ProductEndpoints
             return Results.Ok(await productService.CreateProduct(productDto));
         })
         .WithName("CreateProduct")
+        .WithValidation<ProductDto>()
         .WithOpenApi();
 
         group.MapDelete("/{id}", async (int id, IProductService productService) =>
