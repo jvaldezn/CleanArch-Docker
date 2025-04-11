@@ -4,7 +4,13 @@ using API.Endpoints;
 using API.Extensions;
 using Infrastructure.Configuration.Context;
 using API.Middlewares;
+using DotNetEnv;
+
+Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddEnvironmentVariables();
 
 // Add services to the container.
 
