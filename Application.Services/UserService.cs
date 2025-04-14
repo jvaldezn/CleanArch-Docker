@@ -120,7 +120,7 @@ namespace Application.Services
 
                 _userRepository.Update(user);
                 await _unitOfWork.SaveAsync();
-                transaction.Commit();
+                await transaction.CommitAsync();
 
                 return Response<UserDto>.Success(_mapper.Map<UserDto>(user), Messages.UserUpdated);
             }

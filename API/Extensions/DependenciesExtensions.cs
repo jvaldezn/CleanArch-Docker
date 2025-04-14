@@ -1,6 +1,8 @@
 ﻿using System.Net.Mail;
+using Application.DTOs;
 using Application.Interface;
 using Application.Services;
+using FluentValidation;
 using Infrastructure.Configuration;
 using Infrastructure.Configuration.Context;
 using Infrastructure.Interface;
@@ -8,6 +10,7 @@ using Infrastructure.Messaging.Publisher;
 using Infrastructure.Repositories;
 using Transversal.Common.Interfaces;
 using Transversal.Mappings;
+using Transversal.Validator;
 
 namespace API.Extensions
 {
@@ -32,6 +35,8 @@ namespace API.Extensions
             services.AddScoped<ILogService, LogService>();
 
             services.AddScoped<IEventPublisher, EventPublisher>();
+
+            services.AddScoped<IValidator<UserDto>, UserDtoValidator>();
 
             return services;
         }

@@ -1,4 +1,5 @@
-﻿using Application.DTOs;
+﻿using API.Extensions;
+using Application.DTOs;
 using Application.Interface;
 
 namespace API.Endpoints
@@ -38,6 +39,7 @@ namespace API.Endpoints
                 return Results.Ok(await userService.CreateUser(userDto));
             })
             .WithName("CreateUser")
+            .WithFluentValidation<UserDto>()
             .WithOpenApi()
             .RequireAuthorization();
 
